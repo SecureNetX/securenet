@@ -1,73 +1,137 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureNet Token</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a0a23;
-            color: #ffffff;
-            text-align: center;
-        }
-        header {
-            background-color: #1a1a40;
-            padding: 20px;
-        }
-        header h1 {
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-        }
-        .tokenomics, .presale, .whitepaper {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #1a1a40;
-            border-radius: 10px;
-        }
-        footer {
-            background-color: #1a1a40;
-            padding: 10px;
-        }
-        a {
-            color: #00bfff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureNet - Fairlaunch</title>
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif; /* Futuristische Schrift */
+      margin: 0;
+      padding: 0;
+      background-color: #d1d1d1; /* Grau, passend zum Logo */
+      color: #333;
+    }
+    header {
+      background-color: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+    header img {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #0f3460;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #1a1a2e;
+      color: #fff;
+      margin-top: 20px;
+    }
+    .links a {
+      color: #1a1a2e;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to SecureNet</h1>
-        <p>An innovative blockchain-based meme network enabling secure and encrypted communication.</p>
-    </header>
-    <section>
-        <div class="whitepaper">
-            <h2>Whitepaper</h2>
-            <p>Read the detailed <a href="whitepaper.html" target="_blank">SecureNet Whitepaper</a> for more information.</p>
-        </div>
-        <div class="tokenomics">
-            <h2>Tokenomics</h2>
-            <p>Total Supply: 600 Billion SNET</p>
-            <p>Burn Fee: 0.3% per transaction</p>
-            <p>Distribution:</p>
-            <ul>
-                <li>63% for FAIRLAUNCH</li>
-                <li>8% Unlocked</li>
-                <li>27% Liquidity</li>
-                <li>2% Platform</li>
-            </ul>
-        </div>
-        <div class="fairlaunch">
-            <h2>Fairlaunch Details</h2>
-            <p>Soft Cap: 300 POL</p>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2025 SecureNet. All rights reserved.</p>
-    </footer>
+  <header>
+    <img src="" alt="SecureNet Logo">
+    <h1>SecureNet</h1>
+    <p>Your gateway to secure and fair digital transactions.</p>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>About SecureNet</h2>
+      <p>
+        SecureNet (SNET) is a decentralized token designed to build a secure, fair, and community-driven ecosystem. Created with a meme-like appeal, it aims to provide both fun and long-term value through innovative blockchain technologies.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Fairlaunch Details</h2>
+      <p>The SecureNet Fairlaunch distribution is as follows:</p>
+      <ul>
+        <li><strong>63%</strong> - Fairlaunch</li>
+        <li><strong>27%</strong> - Liquidity</li>
+        <li><strong>8%</strong> - Unlocked</li>
+        <li><strong>2%</strong> - Platform</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Buy SecureNet</h2>
+      <p>
+        SecureNet (SNET) can only be purchased using MATIC (Polygon). Ensure you have MATIC in your wallet before proceeding. The SecureNet token will be available for trading on QuickSwap in 2 days. Once trading is live, you can purchase it directly from the button below:
+      </p>
+      <a id="buyBtn" href="#" class="btn" disabled>Buy SecureNet</a>
+    </div>
+
+    <div class="section">
+      <h2>Resources</h2>
+      <div class="links">
+        <a href="https://securenetx.github.io/securenet/whitepaper.html="_blank">Whitepaper</a>
+        <a href="https://t.me/snet_work" target="_blank">Telegram</a>
+        <a href="https://x.com/fabrizio3030?t=yYCgi38TypZ_fWPMZjCRBg&s=09" target="_blank">X (Twitter)</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 SecureNet. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Simulate enabling the buy button when token is live
+    const daysToGoLive = 2; // Replace with the actual number of days remaining
+    const buyBtn = document.getElementById("buyBtn");
+
+    setTimeout(() => {
+      buyBtn.href = "https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77;
+      buyBtn.disabled = false;
+      buyBtn.textContent = "Buy SecureNet Now";
+    }, daysToGoLive * 24 * 60 * 60 * 1000); // Convert days to milliseconds
+  </script>
 </body>
 </html>
+
