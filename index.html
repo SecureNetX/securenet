@@ -96,11 +96,9 @@
             <strong>Raised:</strong> <span id="raised-matic">320 MATIC</span> / <strong>Softcap:</strong> 300 MATIC<br>
             <strong>Minimum Buy:</strong> 10 MATIC
         </p>
-        <button id="buy-button">
-          <a href="https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77" target="_blank" style="color: white; text-decoration: none;">
-            Buy SNET on Quickswap
-          </a>
-        </button>
+       <button id="buy-button" disabled style="padding: 15px 30px; font-size: 1.5em; background-color: #ccc; color: white; border: none; border-radius: 5px; cursor: not-allowed;">
+    Buy SNET on Quickswap
+</button>
         <p>Accepted currency: <strong>MATIC / POL</strong></p>
         <div>
             <a href="whitepaper.html" target="_blank">Read Whitepaper</a>
@@ -116,33 +114,34 @@
     </footer>
 
     <script>
-        // Countdown Timer Script
-        const countdownElement = document.getElementById('countdown');
-        const buyButton = document.getElementById('buy-button');
-        const launchDate = new Date("2025-01-25T00:00:00Z"); // Set launch date and time
+    const countdownElement = document.getElementById('countdown');
+    const buyButton = document.getElementById('buy-button');
+    const launchDate = new Date("2025-01-25T00:00:00Z"); // Datum und Uhrzeit des Token-Handels
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeLeft = launchDate - now;
+    function updateCountdown() {
+        const now = new Date();
+        const timeLeft = launchDate - now;
 
-            if (timeLeft <= 0) {
-                countdownElement.textContent = "Fairlaunch Ended! Token is Now Tradable!";
-                buyButton.disabled = false;
-                buyButton.style.cursor = "pointer";
-                buyButton.textContent = "Buy SNET";
-                return;
-            }
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if (timeLeft <= 0) {
+            // Countdown beendet, Button aktivieren
+            countdownElement.textContent = "Fairlaunch Ended! Token is Now Tradable!";
+            buyButton.disabled = false;
+            buyButton.style.cursor = "pointer";
+            buyButton.style.backgroundColor = "#00bfff"; // Farbe für den aktivierten Button
+            buyButton.innerHTML = `<a href="https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77" target="_blank" style="color: white; text-decoration: none;">Buy SNET on Quickswap</a>`;
+            return;
         }
 
-        setInterval(updateCountdown, 1000);
-    </script>
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
 
