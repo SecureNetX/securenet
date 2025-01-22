@@ -1,137 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureNet - Fairlaunch</title>
-  <style>
-    body {
-      font-family: 'Orbitron', sans-serif; /* Futuristische Schrift */
-      margin: 0;
-      padding: 0;
-      background-color: #d1d1d1; /* Grau, passend zum Logo */
-      color: #333;
-    }
-    header {
-      background-color: #1a1a2e;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      position: relative;
-    }
-    header img {
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      width: 80px;
-      height: auto;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #f4f4f4;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .section {
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      background: #1a1a2e;
-      color: #fff;
-      text-align: center;
-      padding: 10px 20px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #0f3460;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background: #1a1a2e;
-      color: #fff;
-      margin-top: 20px;
-    }
-    .links a {
-      color: #1a1a2e;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureNet Token</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('path-to-your-background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            font-family: 'Futuristic', sans-serif;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        #fairlaunch {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin: 20px;
+        }
+        #fairlaunch button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+        #fairlaunch a {
+            color: #00bfff;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="" alt="SecureNet Logo">
-    <h1>SecureNet</h1>
-    <p>Your gateway to secure and fair digital transactions.</p>
-  </header>
+    <header>
+        <div class="container">
+            <img src="path-to-your-logo.png" alt="SecureNet Logo">
+            <h1>SecureNet</h1>
+            <p>Welcome to the official SecureNet token website. SecureNet is a secure, encrypted communication token for the future of decentralized networks.</p>
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="section">
-      <h2>About SecureNet</h2>
-      <p>
-        SecureNet (SNET) is a decentralized token designed to build a secure, fair, and community-driven ecosystem. Created with a meme-like appeal, it aims to provide both fun and long-term value through innovative blockchain technologies.
-      </p>
-    </div>
+    <section id="fairlaunch">
+        <h2>SecureNet Token Fairlaunch</h2>
+        <p>The SecureNet Token (SNET) is now live in a Fairlaunch! Participate and become a part of a secure and encrypted communication future.</p>
+        <div id="countdown"></div>
+        <p>
+            <strong>Fairlaunch Details:</strong><br>
+            - <strong>63%</strong> Allocated for Fairlaunch<br>
+            - <strong>27%</strong> Liquidity<br>
+            - <strong>8%</strong> Unlocked<br>
+            - <strong>2%</strong> Platform Development
+        </p>
+        <p>
+            <strong>Raised:</strong> <span id="raised-matic">320 MATIC</span> / <strong>Softcap:</strong> 300 MATIC<br>
+            <strong>Minimum Buy:</strong> 10 MATIC
+        </p>
+        <button id="buy-button" disabled>Buy SNET (Available After Launch)</button>
+        <p>Accepted currency: <strong>MATIC / POL</strong></p>
+        <div>
+            <a href="/whitepaper">Read Whitepaper</a>
+            <a href="https://t.me/SecureNetCommunity" target="_blank">Telegram</a>
+            <a href="https://twitter.com/SecureNetToken" target="_blank">Twitter</a>
+        </div>
+    </section>
 
-    <div class="section">
-      <h2>Fairlaunch Details</h2>
-      <p>The SecureNet Fairlaunch distribution is as follows:</p>
-      <ul>
-        <li><strong>63%</strong> - Fairlaunch</li>
-        <li><strong>27%</strong> - Liquidity</li>
-        <li><strong>8%</strong> - Unlocked</li>
-        <li><strong>2%</strong> - Platform</li>
-      </ul>
-    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SecureNet Token. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-    <div class="section">
-      <h2>Buy SecureNet</h2>
-      <p>
-        SecureNet (SNET) can only be purchased using MATIC (Polygon). Ensure you have MATIC in your wallet before proceeding. The SecureNet token will be available for trading on QuickSwap in 2 days. Once trading is live, you can purchase it directly from the button below:
-      </p>
-      <a id="buyBtn" href="#" class="btn" disabled>Buy SecureNet</a>
-    </div>
+    <script>
+        // Countdown Timer Script
+        const countdownElement = document.getElementById('countdown');
+        const buyButton = document.getElementById('buy-button');
+        const launchDate = new Date("2025-01-25T00:00:00Z"); // Set launch date and time
 
-    <div class="section">
-      <h2>Resources</h2>
-      <div class="links">
-        <a href="https://whitepaper.html="_blank">Whitepaper</a>
-        <a href="https://t.me/snet_work" target="_blank">Telegram</a>
-        <a href="https://x.com/fabrizio3030?t=yYCgi38TypZ_fWPMZjCRBg&s=09" target="_blank">X (Twitter)</a>
-      </div>
-    </div>
-  </div>
+        function updateCountdown() {
+            const now = new Date();
+            const timeLeft = launchDate - now;
 
-  <footer>
-    <p>© 2025 SecureNet. All Rights Reserved.</p>
-  </footer>
+            if (timeLeft <= 0) {
+                countdownElement.textContent = "Fairlaunch Ended! Token is Now Tradable!";
+                buyButton.disabled = false;
+                buyButton.style.cursor = "pointer";
+                buyButton.textContent = "Buy SNET";
+                return;
+            }
 
-  <script>
-    // Simulate enabling the buy button when token is live
-    const daysToGoLive = 2; // Replace with the actual number of days remaining
-    const buyBtn = document.getElementById("buyBtn");
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    setTimeout(() => {
-      buyBtn.href = "https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77;
-      buyBtn.disabled = false;
-      buyBtn.textContent = "Buy SecureNet Now";
-    }, daysToGoLive * 24 * 60 * 60 * 1000); // Convert days to milliseconds
-  </script>
+            countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
 
+ 
