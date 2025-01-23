@@ -26,7 +26,6 @@
             padding: 20px;
             text-align: center;
         }
-
         .container p {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
@@ -37,7 +36,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            max-width: 200px;
+            max-width: 150px;
         }
         #fairlaunch {
             text-align: center;
@@ -46,7 +45,7 @@
         }
         #fairlaunch button {
             padding: 15px 30px;
-            font-size: 1.5em;
+            font-size: 1.2em;
             background-color: #00bfff;
             color: white;
             border: none;
@@ -62,7 +61,6 @@
             border-radius: 5px;
             text-decoration: none;
         }
-
         #fairlaunch a:hover {
             background-color: rgba(0, 0, 0, 0.9);
             color: white;
@@ -71,7 +69,8 @@
             position: fixed;
             bottom: 10px;
             left: 10px;
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 15px;
@@ -94,6 +93,41 @@
         }
         #crypto-widget .negative {
             color: #ff0000;
+        }
+        @media screen and (max-width: 768px) {
+            header img {
+                max-width: 100px;
+                top: 10px;
+                right: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            #fairlaunch button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            #crypto-widget {
+                width: 90%;
+                left: 5%;
+                bottom: 10px;
+            }
+            #crypto-widget h3 {
+                font-size: 1em;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            #fairlaunch button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+            #crypto-widget {
+                padding: 10px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
