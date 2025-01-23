@@ -90,7 +90,7 @@
             bottom: 10px;
             left: 10px;
             width: 90%;
-            max-width: 320px;
+            max-width: 300px;
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             color: white;
@@ -187,7 +187,8 @@
         const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
         const countdownElement = document.getElementById('countdown');
         const buyButton = document.getElementById('buy-button');
-        const launchDate = new Date(Date.now() + 23 * 60 * 60 * 1000);
+        const launchDate = new Date(localStorage.getItem('launchDate') || Date.now() + 23 * 60 * 60 * 1000);
+        localStorage.setItem('launchDate', launchDate);
 
         function updateCountdown() {
             const now = new Date();
