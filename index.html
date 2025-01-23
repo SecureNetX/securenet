@@ -12,7 +12,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             margin: 0;
             padding: 0;
         }
@@ -26,7 +26,12 @@
             padding: 20px;
             text-align: center;
         }
-
+        .container p {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
         header img {
             position: absolute;
             top: 20px;
@@ -41,48 +46,51 @@
         #fairlaunch button {
             padding: 15px 30px;
             font-size: 1.5em;
-            background-color: #00bfff;
+            background-color: #ccc;
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            display: inline-block;
+            cursor: not-allowed;
+        }
+        #fairlaunch a {
+            color: #00bfff;
+            margin: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        #fairlaunch a:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
         }
         #crypto-widget {
             position: fixed;
             bottom: 10px;
             left: 10px;
             width: 300px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
         }
-        #crypto-widget h3 {
-            text-align: center;
-            font-size: 1.3em;
-            color: #00bfff;
-            margin-bottom: 15px;
-        }
-        #crypto-list {
+        #crypto-widget ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 1em;
         }
-        #crypto-list li {
+        #crypto-widget li {
+            margin: 5px 0;
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            align-items: center;
         }
-        #crypto-list li:last-child {
-            border-bottom: none;
+        #crypto-widget .positive {
+            color: #00ff00;
         }
-        #crypto-list li span {
-            font-weight: bold;
+        #crypto-widget .negative {
+            color: #ff0000;
         }
     </style>
 </head>
@@ -92,7 +100,7 @@
             <img src="logo.webp" alt="SecureNet Logo">
             <h1 style="font-size: 3em; color: #00bfff; text-align: center; margin-top: 60px;">SecureNet</h1>
             <p>Welcome to the official SecureNet token website. SecureNet (SNET) is a cutting-edge token designed to build a secure and encrypted communication network.
-            Starting as a meme token, SNET aims to create a vibrant community while delivering long-term value and functionality,
+            Starting as a meme token, SNET aims to create a vibrant community while delivering long-term value and functionality.
             Its core focus lies in security, privacy, and fun.</p>
         </div>
     </header>
@@ -124,7 +132,7 @@
     </section>
 
     <div id="crypto-widget">
-        <h3>Live Crypto Prices</h3>
+        <h3 style="text-align: center; font-size: 1.2em;">Live Crypto Prices</h3>
         <ul id="crypto-list">
             <li>Loading...</li>
         </ul>
@@ -137,7 +145,6 @@
     </footer>
 
     <script>
-        // Countdown Timer Script
         const countdownElement = document.getElementById('countdown');
         const buyButton = document.getElementById('buy-button');
         const launchDate = new Date("2025-01-25T00:00:00Z");
@@ -149,7 +156,9 @@
             if (timeLeft <= 0) {
                 countdownElement.textContent = "Fairlaunch Ended! Token is Now Tradable!";
                 buyButton.disabled = false;
-                buyButton.innerHTML = `<a href="https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77" target="_blank" style="color: white;">Buy SNET on Quickswap</a>`;
+                buyButton.style.cursor = "pointer";
+                buyButton.style.backgroundColor = "#00bfff";
+                buyButton.innerHTML = `<a href="https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77" target="_blank" style="color: white; text-decoration: none;">Buy SNET on Quickswap</a>`;
                 return;
             }
 
@@ -160,24 +169,43 @@
 
             countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
+
         setInterval(updateCountdown, 1000);
 
-        // Crypto Prices
         const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
+        let previousPrices = {};
+
         async function fetchCryptoPrices() {
-            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptos.join(',')}&vs_currencies=usd`);
-            const data = await response.json();
-            const cryptoList = document.getElementById('crypto-list');
-            cryptoList.innerHTML = '';
-            cryptos.forEach(crypto => {
-                const price = data[crypto]?.usd ? `$${data[crypto].usd}` : 'Data unavailable';
-                const li = document.createElement('li');
-                li.innerHTML = `<span>${crypto.toUpperCase()}</span> <span>${price}</span>`;
-                cryptoList.appendChild(li);
-            });
+            try {
+                const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptos.join(',')}&vs_currencies=usd`);
+                const data = await response.json();
+                const cryptoList = document.getElementById('crypto-list');
+                cryptoList.innerHTML = '';
+
+                cryptos.forEach(crypto => {
+                    const price = data[crypto]?.usd || 'Data unavailable';
+                    const listItem = document.createElement('li');
+                    const priceChange = document.createElement('span');
+
+                    if (previousPrices[crypto] !== undefined && price !== 'Data unavailable') {
+                        const change = price - previousPrices[crypto];
+                        priceChange.textContent = change > 0 ? '↑' : '↓';
+                        priceChange.className = change > 0 ? 'positive' : 'negative';
+                    }
+
+                    listItem.innerHTML = `<span>${crypto.toUpperCase()}</span> <span>${price === 'Data unavailable' ? price : `$${price}`}</span>`;
+                    listItem.appendChild(priceChange);
+                    cryptoList.appendChild(listItem);
+
+                    previousPrices[crypto] = price;
+                });
+            } catch (error) {
+                console.error('Error fetching crypto prices:', error);
+            }
         }
+
+        setInterval(fetchCryptoPrices, 30000);
         fetchCryptoPrices();
-        setInterval(fetchCryptoPrices, 5000); // Update every 5 seconds
     </script>
 </body>
 </html>
