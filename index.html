@@ -40,17 +40,17 @@
         #fairlaunch button {
             padding: 15px 30px;
             font-size: 1.5em;
-            background-color: #00bfff;
+            background-color: #ccc; /* Grau für nicht klickbaren Zustand */
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            cursor: not-allowed;
             display: inline-block;
         }
         #fairlaunch a {
             color: #00bfff;
             margin: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7); /* Schwarzer Hintergrund */
             padding: 5px 10px;
             border-radius: 5px;
             text-decoration: none;
@@ -89,22 +89,22 @@
         <div class="container">
             <img src="logo.webp" alt="SecureNet Logo">
             <h1 style="font-size: 3em; color: #00bfff; text-align: center; margin-top: 60px;">SecureNet</h1>
-            <p>Welcome to the official SecureNet token website. SecureNet (SNET) is a cutting-edge token designed to build a secure and encrypted communication network.</p>
+            <p style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">Welcome to the official SecureNet token website. SecureNet (SNET) is a cutting-edge token designed to build a secure and encrypted communication network.</p>
         </div>
     </header>
 
     <section id="fairlaunch">
         <h2>SecureNet Token Fairlaunch</h2>
-        <p>The SecureNet Token (SNET) is now live in a Fairlaunch! Participate and become a part of a secure and encrypted communication future.</p>
+        <p style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">The SecureNet Token (SNET) is now live in a Fairlaunch! Participate and become a part of a secure and encrypted communication future.</p>
         <div id="countdown"></div>
-        <p>
+        <p style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">
             <strong>Fairlaunch Details:</strong><br>
             - <strong>63%</strong> Allocated for Fairlaunch<br>
             - <strong>27%</strong> Liquidity<br>
             - <strong>8%</strong> Unlocked<br>
             - <strong>2%</strong> Platform Development
         </p>
-        <p>
+        <p style="background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">
             <strong>Raised:</strong> <span id="raised-matic">320 MATIC</span> / <strong>Softcap:</strong> 300 MATIC<br>
             <strong>Minimum Buy:</strong> 10 MATIC
         </p>
@@ -166,7 +166,7 @@
 
         const countdownElement = document.getElementById('countdown');
         const buyButton = document.getElementById('buy-button');
-        const launchDate = new Date("2025-01-24T00:00:00Z");
+        const launchDate = new Date(Date.now() + 24 * 60 * 60 * 1000 + 3 * 60 * 60 * 1000); // 1 Tag und 3 Stunden ab jetzt
 
         function updateCountdown() {
             const now = new Date();
