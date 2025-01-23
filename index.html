@@ -29,11 +29,18 @@
             text-align: center;
         }
 
+        .container p {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
         header img {
             position: absolute;
             top: 20px;
             right: 20px;
-            max-width: 100px; /* Reduziert für mobile Geräte */
+            max-width: 100px;
         }
 
         header h1 {
@@ -60,12 +67,26 @@
             display: inline-block;
         }
 
+        #fairlaunch a {
+            color: #00bfff;
+            margin: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        #fairlaunch a:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+
         #crypto-widget {
             position: fixed;
             bottom: 10px;
             left: 10px;
-            width: 90%; /* Dynamisch für mobile Geräte */
-            max-width: 300px;
+            width: 90%;
+            max-width: 350px;
             height: auto;
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
@@ -136,6 +157,12 @@
             - <strong>8%</strong> Unlocked<br>
             - <strong>2%</strong> Platform Development</p>
         <button id="buy-button" disabled>Buy SNET on Quickswap</button>
+        <p>Accepted currency: <strong>MATIC / POL</strong></p>
+        <div>
+            <a href="whitepaper.html" target="_blank">Read Whitepaper</a>
+            <a href="https://t.me/snet_work" target="_blank">Telegram</a>
+            <a href="https://x.com/fabrizio3030?t=yYCgi38TypZ_fWPMZjCRBg&s=09/SecureNetToken" target="_blank">Twitter</a>
+        </div>
     </section>
 
     <div id="crypto-widget">
@@ -188,7 +215,8 @@
 
             cryptos.forEach(crypto => {
                 const listItem = document.createElement('li');
-                listItem.innerHTML = `${crypto.toUpperCase()}: ${data[crypto]?.usd ? `$${data[crypto].usd}` : 'Data unavailable'}`;
+                const priceChange = Math.random() > 0.5 ? "▲" : "▼"; // Simulierte Änderung
+                listItem.innerHTML = `${crypto.toUpperCase()}: ${data[crypto]?.usd ? `$${data[crypto].usd}` : 'Data unavailable'} ${priceChange}`;
                 cryptoList.appendChild(listItem);
             });
         }
