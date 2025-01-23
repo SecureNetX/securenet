@@ -36,13 +36,13 @@
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
             border-radius: 5px;
-            display: inline-block;
-            max-width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
         }
         #fairlaunch {
             text-align: center;
             padding: 50px 20px;
-            margin: 20px;
+            margin: 20px auto;
         }
         #fairlaunch button {
             padding: 15px 30px;
@@ -71,7 +71,6 @@
             bottom: 10px;
             left: 10px;
             width: 350px;
-            height: auto;
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
             border-radius: 10px;
@@ -94,7 +93,7 @@
     <header>
         <div class="container">
             <img src="logo.webp" alt="SecureNet Logo">
-            <h1 style="font-size: 3em; color: #00bfff; margin-top: 60px;">SecureNet</h1>
+            <h1 style="font-size: 3em; color: #00bfff;">SecureNet</h1>
             <p>Welcome to the official SecureNet token website. SecureNet is an innovative blockchain-based meme token designed to build a large and engaged community. While initially created as a meme token, SecureNet has a serious purpose: establishing a secure and encrypted communication network. Our mission is to combine the fun and appeal of meme tokens with real-world utility, ensuring long-term growth and sustainability.</p>
         </div>
     </header>
@@ -149,7 +148,7 @@
             cryptos.forEach(crypto => {
                 if (data[crypto]) {
                     const price = data[crypto].usd;
-                    const change = data[crypto].usd_24h_change;
+                    const change = data[crypto].usd_24hr_change;
                     const color = change >= 0 ? 'green' : 'red';
                     const listItem = document.createElement('li');
                     listItem.style.display = 'flex';
