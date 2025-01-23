@@ -36,51 +36,6 @@
             display: inline-block;
         }
 
-        header img {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            max-width: 100px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            color: #00bfff;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        #fairlaunch {
-            text-align: center;
-            padding: 20px 10px;
-            margin: 20px auto;
-        }
-
-        #fairlaunch button {
-            padding: 15px 20px;
-            font-size: 1em;
-            background-color: #00bfff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        #fairlaunch a {
-            color: #00bfff;
-            margin: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 5px 10px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        #fairlaunch a:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-        }
-
         #crypto-widget {
             position: fixed;
             bottom: 10px;
@@ -110,31 +65,13 @@
         #crypto-list li {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin: 5px 0;
         }
 
-        @media (max-width: 600px) {
-            header img {
-                max-width: 80px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            #fairlaunch {
-                padding: 10px;
-            }
-
-            #fairlaunch button {
-                font-size: 0.9em;
-                padding: 10px 15px;
-            }
-
-            #crypto-widget {
-                width: 95%;
-                left: 2.5%;
-            }
+        #crypto-list span.change {
+            font-weight: bold;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -143,7 +80,7 @@
         <div class="container">
             <img src="logo.webp" alt="SecureNet Logo">
             <h1>SecureNet</h1>
-            <p>Welcome to the official SecureNet token website. SecureNet (SNET) is a cutting-edge token designed to build a secure and encrypted communication network. Starting as a meme token, SNET aims to create a vibrant community while delivering long-term value and functionality.</p>
+            <p>Welcome to the official SecureNet token website. SecureNet (SNET) is a cutting-edge token designed to build a secure and encrypted communication network.</p>
         </div>
     </header>
 
@@ -208,15 +145,21 @@
 
         const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
         async function fetchCryptoPrices() {
-            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptos.join(',')}&vs_currencies=usd`);
+            const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptos.join(',')}&vs_currencies=usd&include_24hr_change=true`);
             const data = await response.json();
             const cryptoList = document.getElementById('crypto-list');
             cryptoList.innerHTML = '';
 
             cryptos.forEach(crypto => {
                 const listItem = document.createElement('li');
-                const priceChange = Math.random() > 0.5 ? "▲" : "▼"; // Simulierte Änderung
-                listItem.innerHTML = `${crypto.toUpperCase()}: ${data[crypto]?.usd ? `$${data[crypto].usd}` : 'Data unavailable'} ${priceChange}`;
+                const price = data[crypto]?.usd || "Data unavailable";
+                const change = data[crypto]?.usd_24h_change || 0;
+                const color = change >= 0 ? 'green' : 'red';
+
+                listItem.innerHTML = `
+                    <span>${crypto.toUpperCase()}: $${price}</span>
+                    <span class="change" style="color: ${color};">${change.toFixed(2)}%</span>
+                `;
                 cryptoList.appendChild(listItem);
             });
         }
@@ -226,4 +169,3 @@
     </script>
 </body>
 </html>
-
