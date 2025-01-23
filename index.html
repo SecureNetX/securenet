@@ -118,14 +118,6 @@
             margin: 5px 0;
         }
 
-        #crypto-list .price {
-            margin-right: 10px;
-        }
-
-        #crypto-list .change {
-            font-size: 0.8em;
-        }
-
         @media (max-width: 600px) {
             header img {
                 max-width: 80px;
@@ -195,7 +187,7 @@
         const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
         const countdownElement = document.getElementById('countdown');
         const buyButton = document.getElementById('buy-button');
-        const launchDate = new Date(Date.now() + 23 * 60 * 60 * 1000);
+        const launchDate = new Date("2025-01-25T00:00:00Z");
 
         function updateCountdown() {
             const now = new Date();
