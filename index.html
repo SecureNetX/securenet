@@ -26,6 +26,7 @@
             padding: 20px;
             text-align: center;
         }
+
         .container p {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
@@ -46,20 +47,22 @@
         #fairlaunch button {
             padding: 15px 30px;
             font-size: 1.5em;
-            background-color: #ccc;
+            background-color: #00bfff;
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: not-allowed;
+            cursor: pointer;
+            display: inline-block;
         }
         #fairlaunch a {
             color: #00bfff;
             margin: 10px;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 15px;
+            padding: 5px 10px;
             border-radius: 5px;
             text-decoration: none;
         }
+
         #fairlaunch a:hover {
             background-color: rgba(0, 0, 0, 0.9);
             color: white;
@@ -68,10 +71,10 @@
             position: fixed;
             bottom: 10px;
             left: 10px;
-            width: 300px;
+            width: 350px;
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             font-family: Arial, sans-serif;
         }
@@ -120,9 +123,7 @@
             <strong>Raised:</strong> <span id="raised-matic">320 MATIC</span> / <strong>Softcap:</strong> 300 MATIC<br>
             <strong>Minimum Buy:</strong> 10 MATIC
         </p>
-        <button id="buy-button" disabled>
-            Buy SNET on Quickswap
-        </button>
+        <button id="buy-button" disabled>Buy SNET on Quickswap</button>
         <p>Accepted currency: <strong>MATIC / POL</strong></p>
         <div>
             <a href="whitepaper.html" target="_blank">Read Whitepaper</a>
@@ -145,6 +146,55 @@
     </footer>
 
     <script>
+        const cryptos = [
+            { id: 'bitcoin', name: 'BITCOIN' },
+            { id: 'ethereum', name: 'ETHEREUM' },
+            { id: 'matic-network', name: 'MATIC-NETWORK' },
+            { id: 'sponge', name: 'SPONGEV2' },
+            { id: 'baby-doge-coin', name: 'BABYDOGE-COIN' },
+            { id: 'pepe', name: 'PEPE' },
+            { id: 'shiba-inu', name: 'SHIBA-INU' },
+            { id: 'ripple', name: 'RIPPLE' },
+            { id: 'solana', name: 'SOLANA' },
+            { id: 'blockv', name: 'BLOCKV' },
+            { id: 'tune', name: 'TUNE' }
+        ];
+
+        let previousPrices = {};
+
+        async function fetchCryptoPrices() {
+            try {
+                const ids = cryptos.map(crypto => crypto.id).join(',');
+                const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
+                const data = await response.json();
+                const cryptoList = document.getElementById('crypto-list');
+                cryptoList.innerHTML = '';
+
+                cryptos.forEach(crypto => {
+                    const price = data[crypto.id]?.usd || 'Data unavailable';
+                    const listItem = document.createElement('li');
+                    const priceChange = document.createElement('span');
+
+                    if (previousPrices[crypto.id] !== undefined && price !== 'Data unavailable') {
+                        const change = price - previousPrices[crypto.id];
+                        priceChange.textContent = change > 0 ? '↑' : '↓';
+                        priceChange.className = change > 0 ? 'positive' : 'negative';
+                    }
+
+                    listItem.innerHTML = `<span>${crypto.name}</span> <span>${price === 'Data unavailable' ? price : `$${price}`}</span>`;
+                    listItem.appendChild(priceChange);
+                    cryptoList.appendChild(listItem);
+
+                    previousPrices[crypto.id] = price;
+                });
+            } catch (error) {
+                console.error('Error fetching crypto prices:', error);
+            }
+        }
+
+        setInterval(fetchCryptoPrices, 30000);
+        fetchCryptoPrices();
+
         const countdownElement = document.getElementById('countdown');
         const buyButton = document.getElementById('buy-button');
         const launchDate = new Date("2025-01-25T00:00:00Z");
@@ -171,41 +221,7 @@
         }
 
         setInterval(updateCountdown, 1000);
-
-        const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
-        let previousPrices = {};
-
-        async function fetchCryptoPrices() {
-            try {
-                const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptos.join(',')}&vs_currencies=usd`);
-                const data = await response.json();
-                const cryptoList = document.getElementById('crypto-list');
-                cryptoList.innerHTML = '';
-
-                cryptos.forEach(crypto => {
-                    const price = data[crypto]?.usd || 'Data unavailable';
-                    const listItem = document.createElement('li');
-                    const priceChange = document.createElement('span');
-
-                    if (previousPrices[crypto] !== undefined && price !== 'Data unavailable') {
-                        const change = price - previousPrices[crypto];
-                        priceChange.textContent = change > 0 ? '↑' : '↓';
-                        priceChange.className = change > 0 ? 'positive' : 'negative';
-                    }
-
-                    listItem.innerHTML = `<span>${crypto.toUpperCase()}</span> <span>${price === 'Data unavailable' ? price : `$${price}`}</span>`;
-                    listItem.appendChild(priceChange);
-                    cryptoList.appendChild(listItem);
-
-                    previousPrices[crypto] = price;
-                });
-            } catch (error) {
-                console.error('Error fetching crypto prices:', error);
-            }
-        }
-
-        setInterval(fetchCryptoPrices, 5000);
-        fetchCryptoPrices();
+        updateCountdown();
     </script>
 </body>
 </html>
