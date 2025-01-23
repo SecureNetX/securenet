@@ -90,14 +90,16 @@
             position: fixed;
             bottom: 10px;
             left: 10px;
-            width: 95%;
-            max-width: 350px;
+            width: 80%;
+            max-width: 300px;
             height: auto;
+            max-height: 40vh; /* Beschränkung auf 40% der Bildschirmhöhe */
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             color: white;
             border-radius: 10px;
-            overflow: auto;
+            overflow-y: auto;
+            font-size: 0.9em;
         }
 
         #crypto-widget h3 {
@@ -109,7 +111,6 @@
         #crypto-list {
             list-style: none;
             padding: 0;
-            font-size: 0.8em;
         }
 
         #crypto-list li {
@@ -146,9 +147,10 @@
             }
 
             #crypto-widget {
-                width: 95%;
-                left: 2.5%;
+                width: 90%;
+                left: 5%;
                 bottom: 5px;
+                max-height: 35vh; /* Kleinere Höhe auf Smartphones */
             }
         }
     </style>
