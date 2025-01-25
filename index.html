@@ -36,18 +36,23 @@
             display: inline-block;
         }
 
-        header img {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            max-width: 100px;
+        #logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        header h1 {
+        #logo-container h1 {
             font-size: 2.5em;
             color: #00bfff;
-            text-align: center;
-            margin-top: 80px;
+            margin: 0;
+            margin-right: 10px; /* Abstand zwischen Text und Logo */
+        }
+
+        #logo-container img {
+            max-width: 50px;
+            height: auto;
         }
 
         #crypto-bar {
@@ -124,8 +129,10 @@
 
     <header>
         <div class="container">
-            <img src="logo.webp" alt="SecureNet Logo">
-            <h1>SecureNet</h1>
+            <div id="logo-container">
+                <h1>SecureNet</h1>
+                <img src="logo.webp" alt="SecureNet Logo">
+            </div>
             <p>Welcome to the official SecureNet token website. SecureNet is an innovative blockchain-based meme token designed to build a large and engaged community. While initially created as a meme token, SecureNet has a serious purpose: establishing a secure and encrypted communication network. Our mission is to combine the fun and appeal of meme tokens with real-world utility, ensuring long-term growth and sustainability.</p>
         </div>
     </header>
