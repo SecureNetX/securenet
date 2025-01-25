@@ -29,131 +29,51 @@
             text-align: center;
         }
 
-        .container p {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        #logo-container {
+        .stages-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            margin-top: 80px;
+            justify-content: space-between;
+            margin-top: 50px;
         }
 
-        #logo-container h1 {
-            font-size: 2.5em;
-            color: #00bfff;
-            margin: 0;
-        }
-
-        #logo-container img {
-            max-width: 50px;
-            height: auto;
-            margin-left: 10px;
-        }
-
-        .buy-button {
-            margin-top: 30px;
-        }
-
-        .buy-button button {
-            padding: 15px 30px;
-            font-size: 1.2em;
+        .stage {
+            width: 45%;
             background-color: #00bfff;
+            border-radius: 10px;
+            padding: 20px;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .buy-button button:hover {
-            background-color: #008fcc;
+        .stage h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
         }
 
-        .links {
-            margin-top: 30px;
-        }
-
-        .links a {
-            color: #00bfff;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        #crypto-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            overflow: hidden;
-            z-index: 9999;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #00bfff;
-        }
-
-        #crypto-ticker {
-            display: flex;
-            animation: scroll 60s linear infinite;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        #crypto-list {
-            display: inline-flex;
-            list-style: none;
-            padding: 0;
+        .stage ul {
+            list-style-type: disc;
             margin: 0;
+            padding: 0 20px;
         }
 
-        #crypto-list li {
-            margin: 0 20px;
-            font-size: 0.9em;
-        }
-
-        @keyframes scroll {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
+        .stage ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
         }
 
         @media (max-width: 600px) {
-            header img {
-                max-width: 80px;
+            .stages-container {
+                flex-direction: column;
+                align-items: center;
             }
 
-            header h1 {
-                font-size: 2em;
-            }
-
-            #logo-container {
-                margin-top: 100px;
-            }
-
-            .buy-button button {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-
-            .links a {
-                font-size: 1em;
+            .stage {
+                width: 90%;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -186,6 +106,45 @@
             </div>
         </div>
     </header>
+
+    <!-- Stages Section -->
+    <section class="stages-container">
+        <div class="stage">
+            <h3>Stage 1</h3>
+            <ul>
+                <li>Point 1 for Stage 1</li>
+                <li>Point 2 for Stage 1</li>
+                <li>Point 3 for Stage 1</li>
+            </ul>
+        </div>
+        <div class="stage">
+            <h3>Stage 2</h3>
+            <ul>
+                <li>Point 1 for Stage 2</li>
+                <li>Point 2 for Stage 2</li>
+                <li>Point 3 for Stage 2</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="stages-container">
+        <div class="stage">
+            <h3>Stage 3</h3>
+            <ul>
+                <li>Point 1 for Stage 3</li>
+                <li>Point 2 for Stage 3</li>
+                <li>Point 3 for Stage 3</li>
+            </ul>
+        </div>
+        <div class="stage">
+            <h3>Stage 4</h3>
+            <ul>
+                <li>Point 1 for Stage 4</li>
+                <li>Point 2 for Stage 4</li>
+                <li>Point 3 for Stage 4</li>
+            </ul>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
