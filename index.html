@@ -41,7 +41,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            margin-top: 80px; /* Abstand vom oberen Rand */
+            margin-top: 80px;
         }
 
         #logo-container h1 {
@@ -53,50 +53,42 @@
         #logo-container img {
             max-width: 50px;
             height: auto;
-            margin-left: 10px; /* Abstand links vom Logo */
+            margin-left: 10px;
         }
 
-        #crypto-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+        .buy-button {
+            margin-top: 30px;
+        }
+
+        .buy-button button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #00bfff;
             color: white;
-            overflow: hidden;
-            z-index: 9999;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #00bfff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        #crypto-ticker {
-            display: flex;
-            animation: scroll 60s linear infinite; /* Geschwindigkeit angepasst */
-            white-space: nowrap;
-            overflow: hidden;
+        .buy-button button:hover {
+            background-color: #008fcc;
         }
 
-        #crypto-list {
-            display: inline-flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .links {
+            margin-top: 30px;
         }
 
-        #crypto-list li {
-            margin: 0 20px;
-            font-size: 0.9em;
+        .links a {
+            color: #00bfff;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
         }
 
-        @keyframes scroll {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
+        .links a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -108,17 +100,17 @@
                 font-size: 2em;
             }
 
-            #fairlaunch {
-                padding: 10px;
-            }
-
-            #fairlaunch button {
-                font-size: 0.9em;
-                padding: 10px 15px;
-            }
-
             #logo-container {
-                margin-top: 100px; /* Mehr Abstand für mobile Geräte */
+                margin-top: 100px;
+            }
+
+            .buy-button button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .links a {
+                font-size: 1em;
             }
         }
     </style>
@@ -139,26 +131,18 @@
                 <img src="logo.webp" alt="SecureNet Logo">
             </div>
             <p>Welcome to the official SecureNet token website. SecureNet is an innovative blockchain-based meme token designed to build a large and engaged community. While initially created as a meme token, SecureNet has a serious purpose: establishing a secure and encrypted communication network. Our mission is to combine the fun and appeal of meme tokens with real-world utility, ensuring long-term growth and sustainability.</p>
+            <div class="buy-button">
+                <button onclick="window.open('https://quickswap.exchange/#/swap?outputCurrency=0x4204Fefd40C6EE5da7A93C07d7CfF938e3815E77', '_blank')">
+                    Buy SecureNet with MATIC
+                </button>
+            </div>
+            <div class="links">
+                <a href="whitepaper.html" target="_blank">Read Whitepaper</a>
+                <a href="https://t.me/snet_work" target="_blank">Telegram</a>
+                <a href="https://x.com/fabrizio3030" target="_blank">Twitter</a>
+            </div>
         </div>
     </header>
-
-    <section id="fairlaunch">
-        <h2>SecureNet Token Fairlaunch</h2>
-        <p>The SecureNet Token (SNET) is now live in a Fairlaunch! Participate and become a part of a secure and encrypted communication future.</p>
-        <div id="countdown"></div>
-        <p><strong>Fairlaunch Details:</strong><br>
-            - <strong>63%</strong> Allocated for Fairlaunch<br>
-            - <strong>27%</strong> Liquidity<br>
-            - <strong>8%</strong> Unlocked<br>
-            - <strong>2%</strong> Platform Development</p>
-        <button id="buy-button" disabled>Buy SNET on Quickswap</button>
-        <p>Accepted currency: <strong>MATIC / POL</strong></p>
-        <div>
-            <a href="whitepaper.html" target="_blank">Read Whitepaper</a>
-            <a href="https://t.me/snet_work" target="_blank">Telegram</a>
-            <a href="https://x.com/fabrizio3030" target="_blank">Twitter</a>
-        </div>
-    </section>
 
     <footer>
         <div class="container">
