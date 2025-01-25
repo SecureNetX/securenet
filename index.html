@@ -29,28 +29,130 @@
             text-align: center;
         }
 
+        #crypto-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            overflow: hidden;
+            z-index: 9999;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #00bfff;
+        }
+
+        #crypto-ticker {
+            display: flex;
+            animation: scroll 60s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #crypto-list {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #crypto-list li {
+            margin: 0 20px;
+            font-size: 0.9em;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-top: 80px;
+        }
+
+        #logo-container h1 {
+            font-size: 2.5em;
+            color: #00bfff;
+            margin: 0;
+        }
+
+        #logo-container img {
+            max-width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .buy-button {
+            margin-top: 30px;
+        }
+
+        .buy-button button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button button:hover {
+            background-color: #008fcc;
+        }
+
+        .links {
+            margin-top: 30px;
+        }
+
+        .links a {
+            color: #00bfff;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
         .stages-container {
             display: flex;
             justify-content: space-between;
             margin-top: 50px;
-            flex-wrap: wrap; /* Zeilenumbruch für kleine Bildschirme */
+        }
+
+        .stages-column {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .stage {
-            width: 22%; /* Kleinere Felder */
             background-color: #00bfff;
             border-radius: 10px;
-            padding: 10px; /* Weniger Padding */
+            padding: 10px;
             color: white;
             text-align: left;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
         }
 
         .stage h3 {
             text-align: center;
             margin-bottom: 10px;
-            font-size: 1.2em; /* Kleinere Überschrift */
+            font-size: 1.2em;
             text-transform: uppercase;
             border-bottom: 2px solid white;
             padding-bottom: 5px;
@@ -59,8 +161,8 @@
         .stage ul {
             list-style-type: disc;
             margin: 0;
-            padding: 0 15px; /* Weniger Abstand */
-            font-size: 0.9em; /* Kleinere Schrift */
+            padding: 0 15px;
+            font-size: 0.9em;
         }
 
         .stage ul li {
@@ -73,9 +175,21 @@
                 align-items: center;
             }
 
-            .stage {
-                width: 90%; /* Volle Breite auf kleinen Bildschirmen */
-                margin-bottom: 20px;
+            .stages-column {
+                width: 90%;
+            }
+
+            #logo-container {
+                margin-top: 100px;
+            }
+
+            .buy-button button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .links a {
+                font-size: 1em;
             }
         }
     </style>
@@ -111,37 +225,41 @@
 
     <!-- Stages Section -->
     <section class="stages-container">
-        <div class="stage">
-            <h3>Stage 1</h3>
-            <ul>
-                <li>Point 1 for Stage 1</li>
-                <li>Point 2 for Stage 1</li>
-                <li>Point 3 for Stage 1</li>
-            </ul>
+        <div class="stages-column">
+            <div class="stage">
+                <h3>Stage 1</h3>
+                <ul>
+                    <li>Point 1 for Stage 1</li>
+                    <li>Point 2 for Stage 1</li>
+                    <li>Point 3 for Stage 1</li>
+                </ul>
+            </div>
+            <div class="stage">
+                <h3>Stage 3</h3>
+                <ul>
+                    <li>Point 1 for Stage 3</li>
+                    <li>Point 2 for Stage 3</li>
+                    <li>Point 3 for Stage 3</li>
+                </ul>
+            </div>
         </div>
-        <div class="stage">
-            <h3>Stage 2</h3>
-            <ul>
-                <li>Point 1 for Stage 2</li>
-                <li>Point 2 for Stage 2</li>
-                <li>Point 3 for Stage 2</li>
-            </ul>
-        </div>
-        <div class="stage">
-            <h3>Stage 3</h3>
-            <ul>
-                <li>Point 1 for Stage 3</li>
-                <li>Point 2 for Stage 3</li>
-                <li>Point 3 for Stage 3</li>
-            </ul>
-        </div>
-        <div class="stage">
-            <h3>Stage 4</h3>
-            <ul>
-                <li>Point 1 for Stage 4</li>
-                <li>Point 2 for Stage 4</li>
-                <li>Point 3 for Stage 4</li>
-            </ul>
+        <div class="stages-column">
+            <div class="stage">
+                <h3>Stage 2</h3>
+                <ul>
+                    <li>Point 1 for Stage 2</li>
+                    <li>Point 2 for Stage 2</li>
+                    <li>Point 3 for Stage 2</li>
+                </ul>
+            </div>
+            <div class="stage">
+                <h3>Stage 4</h3>
+                <ul>
+                    <li>Point 1 for Stage 4</li>
+                    <li>Point 2 for Stage 4</li>
+                    <li>Point 3 for Stage 4</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -182,3 +300,4 @@
     </script>
 </body>
 </html>
+
