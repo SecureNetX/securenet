@@ -15,7 +15,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Horizontales Scrollen verhindern */
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
@@ -26,7 +26,6 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
             text-align: center;
         }
 
@@ -49,7 +48,6 @@
             display: flex;
             animation: scroll 30s linear infinite;
             white-space: nowrap;
-            overflow: hidden;
         }
 
         #crypto-list {
@@ -77,8 +75,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            margin-top: 80px;
+            margin: 50px 0;
         }
 
         #logo-container h1 {
@@ -94,7 +91,7 @@
         }
 
         .buy-button {
-            margin-top: 50px;
+            margin: 50px 0;
             text-align: center;
         }
 
@@ -106,7 +103,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
         .buy-button button:hover {
@@ -136,16 +132,12 @@
         .stages-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 50px;
-            flex-wrap: wrap; /* Zeilenumbruch bei kleineren Bildschirmen */
+            margin: 50px 0;
+            gap: 20px;
         }
 
         .stages-column {
-            width: 48%; /* Breite der Spalten */
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 20px; /* Abstand zwischen Zeilen */
+            width: 25%; /* Breite angepasst */
         }
 
         .stage {
@@ -178,7 +170,7 @@
             margin: 5px 0;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .stages-container {
                 flex-direction: column;
                 align-items: center;
@@ -189,7 +181,7 @@
             }
 
             #logo-container {
-                margin-top: 100px;
+                margin-top: 30px;
             }
 
             .buy-button button {
@@ -232,7 +224,6 @@
         </div>
     </header>
 
-    <!-- Stages Section -->
     <section class="stages-container">
         <div class="stages-column">
             <div class="stage">
