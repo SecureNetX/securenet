@@ -247,7 +247,7 @@
  <footer>
         © 2025 SecureNet Token. All Rights Reserved.
     </footer>
-      <script>
+       <script>
         const cryptos = ['bitcoin', 'ethereum', 'matic-network', 'spongebob', 'babydoge-coin', 'pepe', 'shiba-inu', 'ripple', 'solana', 'blockv', 'tune'];
         const cryptoList = document.getElementById('crypto-list');
 
@@ -260,31 +260,10 @@
                 const listItem = document.createElement('li');
                 if (data[crypto]) {
                     const price = data[crypto].usd;
-                    const change = data[crypto].usd_24hr_change.toFixed(2);
+                    const change = data[crypto].usd_24h_change.toFixed(2);
                     const color = change >= 0 ? 'green' : 'red';
                     listItem.innerHTML = `
                         <span style="font-weight: bold;">${crypto.toUpperCase()}</span>: 
-                        $${price} <span style="color: ${color};">(${change}%)</span>
-    
-
-            cryptos.forEach(crypto => {
-                const listItem = document.createElement('li');
-                if (data[crypto]) {
-                    const price = data[crypto].usd;
-                    const change = data[crypto].usd_24hr_change.toFixed(2);
-                    const color = change >= 0 ? 'green' : 'red';
-                    listItem.innerHTML = `
-                        <span style="font-weight: bold;">${crypto.toUpperCase()}</span>: 
-                        $${price} <span style="color: ${color};">(${change}%)</span>
-
-            cryptos.forEach(crypto => {
-                const listItem = document.createElement('li');
-                if (data[crypto]) {
-                    const price = data[crypto].usd;
-                    const change = data[crypto].usd_24hr_change.toFixed(2);
-                    const color = change >= 0 ? 'green' : 'red';
-                    listItem.innerHTML = `
-                        <span style="font-weight: bold;">${crypto.toUpperCase()}</span>:
                         $${price} <span style="color: ${color};">(${change}%)</span>
                     `;
                 } else {
@@ -293,7 +272,6 @@
                 cryptoList.appendChild(listItem);
             });
         }
-
         fetchCryptoPrices();
         setInterval(fetchCryptoPrices, 5000);
     </script>
