@@ -143,10 +143,13 @@
         .stage {
             background-color: #00bfff;
             border-radius: 10px;
-            padding: 10px;
+            padding: 20px;
             color: white;
             text-align: left;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            height: 200px; /* Höhe angepasst */
+            width: 200px; /* Breite angepasst */
+            margin: auto;
         }
 
         .stage h3 {
@@ -282,7 +285,7 @@
                 const listItem = document.createElement('li');
                 if (data[crypto]) {
                     const price = data[crypto].usd;
-                    const change = data[crypto].usd_24h_change.toFixed(2);
+                    const change = data[crypto].usd_24hr_change.toFixed(2);
                     const color = change >= 0 ? 'green' : 'red';
                     listItem.innerHTML = `
                         <span style="font-weight: bold;">${crypto.toUpperCase()}</span>: 
